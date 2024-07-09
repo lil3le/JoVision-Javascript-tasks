@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<button id="myButton">Click me</button>
+<p id="outputText"></p>
+
+<script>
+  const button = document.getElementById('myButton');
+  const outputText = document.getElementById('outputText');
+
+  function handleClick() {
+    const numbersArray = [];
+    let sum = 0;
+
+    for (let i = 0; i <= 100; i++) {
+      numbersArray.push(i);
+      sum += i;
+    }
+
+    outputText.textContent = `Sum of numbers from 0 to 100: ${sum}`;
+  }
+  
+  button.addEventListener('click', handleClick);
+</script>
+</body>
+</html>
