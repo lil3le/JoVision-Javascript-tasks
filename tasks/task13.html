@@ -1,0 +1,31 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Estimation</title>
+</head>
+<body>
+  <label for="nameField">Name:</label>
+  <input type="text" id="nameField" placeholder="Enter your name">
+  <button id="submitButton">Submit</button>
+
+  <script>
+    document.getElementById('submitButton').addEventListener('click', async () => {
+      try {
+        const name = document.getElementById('nameField').value;
+        const apiUrl = `https://api.agify.io/?name=${encodeURIComponent(name)}`;
+        const response = await fetch(apiUrl);
+        if (response.ok) {
+          const data = await response.json();
+          const age = data.age;
+          alert(`Your name is: ${name}\nYour age is: ${age}`);
+        } else {
+          alert('Error fetching age information. Please try again later.');
+        }
+      } catch (error) {
+        alert(`An error occurred: ${error.message}`);
+      }
+    });
+  </script>
+</body>
+</html>
