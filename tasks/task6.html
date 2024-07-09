@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,41 +9,39 @@
   <button id="buttonThree">Button Three</button>
   <button id="buttonFour">Button Four</button>
   <button id="buttonFive">Button Five</button>
-  <p id="outputText"></p>
 
   <script>
-    const outputText = document.getElementById('outputText');
 
     document.getElementById('buttonOne').addEventListener('click', () => {
       const numbersArray = Array.from({ length: 101 }, (_, i) => i);
       const filteredArray = numbersArray.filter(num => num % 3 !== 0);
-      outputText.textContent = 'Button One - Filtered Array: ' + filteredArray.join(', ');
+      console.log('Button One - Filtered Array: ' + filteredArray.join(', '));
     });
 
     document.getElementById('buttonTwo').addEventListener('click', () => {
       const numbersArray = Array.from({ length: 101 }, (_, i) => i);
       const extendedArray = [...numbersArray, ...Array.from({ length: 51 }, (_, i) => i + 100)];
-      outputText.textContent = 'Button Two - Extended Array: ' + extendedArray.join(', ');
+      console.log('Button Two - Extended Array: ' + extendedArray.join(', '));
     });
 
     document.getElementById('buttonThree').addEventListener('click', () => {
       const numbersArray = Array.from({ length: 101 }, (_, i) => i);
       const incrementedArray = numbersArray.map(num => num + 3);
-      outputText.textContent = 'Button Three - Incremented Array: ' + incrementedArray.join(', ');
+      console.log('Button Three - Incremented Array: ' + incrementedArray.join(', '));
     });
 
     document.getElementById('buttonFour').addEventListener('click', () => {
       const numbersArray = Array.from({ length: 101 }, (_, i) => i);
       const slicedArray = numbersArray.slice(20, 41);
-      outputText.textContent = 'Button Four - Sliced Array: ' + slicedArray.join(', ');
+      console.log('Button Four - Sliced Array: ' + slicedArray.join(', '));
     });
 
     document.getElementById('buttonFive').addEventListener('click', () => {
       const numbersArray = Array.from({ length: 101 }, (_, i) => i);
       shuffleArray(numbersArray);
-      outputText.textContent = 'Button Five - Shuffled Array: ' + numbersArray.join(', ');
+      console.log('Button Five - Shuffled Array: ' + numbersArray.join(', '));
       numbersArray.sort((a, b) => b - a);
-      outputText.textContent += '\nButton Five - Sorted (Descending) Array: ' + numbersArray.join(', ');
+      console.log(' Button Five - Sorted (Descending) Array: ' + numbersArray.join(', '));
     });
 
     function shuffleArray(array) {
