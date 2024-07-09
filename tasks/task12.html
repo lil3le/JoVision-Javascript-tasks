@@ -1,0 +1,33 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Information</title>
+</head>
+<body>
+  <label for="nameField">Name:</label>
+  <input type="text" id="nameField" placeholder="Enter your name">
+
+  <label for="ageField">Age:</label>
+  <input type="text" id="ageField" placeholder="Enter your age">
+
+  <button id="submitButton">Submit</button>
+
+  <script>
+    document.getElementById('submitButton').addEventListener('click', () => {
+      const name = document.getElementById('nameField').value;
+      const age = document.getElementById('ageField').value;
+      const timestamp = new Date().toLocaleString();
+
+      const userObject = {
+        name: name,
+        age: age,
+        timestamp: timestamp
+      };
+
+      const popupMessage = `Your name is: ${userObject.name}\nYour age is: ${userObject.age}\nTimestamp: ${userObject.timestamp}`;
+      alert(popupMessage);
+    });
+  </script>
+</body>
+</html>
