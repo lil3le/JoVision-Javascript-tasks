@@ -1,0 +1,31 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get IP Address</title>
+</head>
+<body>
+  <button id="getIpButton">Get IP</button>
+
+  <script>
+    document.getElementById('getIpButton').addEventListener('click', async () => {
+      try {
+        const response = await fetch('https://api.ipify.org/?format=json');
+        if (response.ok) {
+          const data = await response.json();
+          const ipAddress = data.ip;
+          document.getElementById('getIpButton').textContent = `Your IP: ${ipAddress}`;
+        } else {
+          const errorMessage = `Error fetching IP address: ${response.status} ${response.statusText}`;
+          alert(errorMessage);
+          console.error(errorMessage);
+        }
+      } catch (error) {
+        const errorMessage = `An error occurred: ${error.message}`;
+        alert(errorMessage);
+        console.error(errorMessage);
+      }
+    });
+  </script>
+</body>
+</html>
